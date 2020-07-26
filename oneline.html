@@ -31,7 +31,8 @@
 								</label>
 							</span>
 
-							<input id="fname" name="fname" placeholder="What is your first Name?" type="text" />
+							<input id="fname" name="fname" placeholder="What is your first Name?" type="text"
+								autofocus="autofocus" />
 						</li>
 
 						<li>
@@ -40,7 +41,8 @@
 									&nbsp;
 								</label>
 							</span>
-							<input id="lname" name="lname" placeholder="What is your Last Name ?" type="text" />
+							<input id="lname" name="lname" placeholder="What is your Last Name ?" type="text"
+								autofocus="autofocus" />
 						</li>
 
 						<li>
@@ -50,7 +52,8 @@
 								</label>
 							</span>
 
-							<input id="email" name="email" placeholder="What is your email?" type="email" />
+							<input id="email" name="email" placeholder="What is your email?" type="email"
+								autofocus="autofocus" />
 						</li>
 
 						<li>
@@ -64,7 +67,7 @@
 							<div class="wrapper">
 								<div>
 
-									<input id="2-4months" class="months" name="6months" type="radio" />
+									<input id="2-4months" class="months" name="6months" type="radio" tabindex="1" />
 									<label for="2-4months">2&nbsp;or&nbsp;4&nbsp;months</label>
 								</div>
 								<div>
@@ -102,25 +105,41 @@
 		</section>
 
 	</div><!-- /container -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+	</script>
 	<script src="js/classie.js"></script>
 	<script src="js/stepsForm.js"></script>
 	<script>
+		// RegEX to find forst capitol letter
+		function toTitleCase(str) {
+			return str.split(/\s+/).map(s => s.charAt(0).toUpperCase() + s.substring(1).toLowerCase()).join(" ");
+		}
+
+		// function to use the above regex to modify first letter on keyup
+		$('input').on('keyup', function (event) {
+			var $t = $(this);
+			$t.val(toTitleCase($t.val()));
+		});
+
+		// function to usbmit selection from radio button selection to move to next content
+		$('input.months').on('click', function () {
+			if ($(this).attr('checked', true)) {
+				$('.next').click();
+			}
+		});
+
 		var theForm = document.getElementById('theForm');
 
 		new stepsForm(theForm, {
 			onSubmit: function (form) {
 				// hide form
 				classie.addClass(theForm.querySelector('.simform-inner'), 'hide');
-
 				/*
 				form.submit()
 				or
-				AJAX request (......... and....... more..........)
+				AJAX request (to configure with Gravity forms)
 				*/
-
-				// let's just simulate something...
-
-
 				var messageEl = theForm.querySelector('.final-message');
 				messageEl.innerHTML =
 					'Thank you! We\'ll be in touch.<br><a href="#"><button class="brochureBtn">View our Brochure now<\/button><\/a>';
@@ -128,26 +147,11 @@
 			}
 		});
 	</script>
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
-	</script>
-	<script>
-		function toTitleCase(str) {
-			return str.split(/\s+/).map(s => s.charAt(0).toUpperCase() + s.substring(1).toLowerCase()).join(" ");
-		}
 
-
-		$('input').on('keyup', function (event) {
-			var $t = $(this);
-			$t.val(toTitleCase($t.val()));
-		});
-
-		$('input.months').on('click', function () {
-			if ($(this).attr('checked', true)) {
-				$('.next').click();
-			}
-		});
-	</script>
 </body>
 
 </html>
+
+<script>
+
+</script>

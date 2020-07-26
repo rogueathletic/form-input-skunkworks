@@ -30,7 +30,7 @@
 }
 
 body {
-	background: #26C281;
+	background: #d1d0cf;
 	color: rgba(0, 0, 0, 0.45);
 	font-size: 100%;
 	line-height: 1.25;
@@ -115,7 +115,7 @@ a:focus {
 
 section {
 	padding: 5em 2em 10em;
-	background: #2dcb89;
+	background:linear-gradient(45deg, #fff, #E2DFDE);
 	text-align: center;
 }
 
@@ -132,14 +132,16 @@ section.related {
 	width: 300px;
 	font-size: 26px;
 	height: 75px;
-	border-radius:50px;
-	color: #1c704b;
-	background: #2ecb89;
-	box-shadow: 20px 20px 60px #27ad74,		-20px -20px 60px #35e99e;
-	-webkit-border-radius:50px;
-	-moz-border-radius:50px;
-	-ms-border-radius:50px;
-	-o-border-radius:50px;
+	border-radius: 50px;
+	color: #E2DFDE;
+	background: #E2DFDE;
+	box-shadow: 20px 20px 60px #c0bebd,
+		-20px -20px 60px #ffffff;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-o-border-radius: 50px;
+	color: rgb(153, 153, 153)
 }
 
 
@@ -161,21 +163,27 @@ section.related {
 }
 
 .wrapper div label {
-margin: 0 5px;
+	margin: 0 5px;
 }
 
 .brochureBtn:hover {
-	background: #2ecb89;
-box-shadow: inset 20px 20px 60px #27ad74, 
-            inset -20px -20px 60px #35e99e;
+	background: linear-gradient(145deg, #f2efee, #cbc9c8);
+	box-shadow: 20px 20px 60px #c0bebd,
+		-20px -20px 60px #ffffff;
 }
 
 .brochureBtn:active {
-	background: linear-gradient(145deg, #31d993, #29b77b);
-	box-shadow:  10px 10px 60px #27ad74, 
-				 -10px -10px 60px #35e99e;
-	color: #279b68;
+	background: #E2DFDE;
+	box-shadow: 10px 10px 80px #c0bebd,
+		-10px -10px 80px #ffffff,
+		inset 20px 20px 60px #c0bebd,
+		inset -20px -20px 60px #ffffff;
 }
+
+input {
+	caret-color: #f47a55;
+}
+
 
 .related>a {
 	max-width: 80%;
