@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Minimal Form Interface</title>
+	<title>one line form</title>
 	<meta name="description" content="Minimal Form Interface: Simplistic, single input view form" />
 	<meta name="keywords" content="form, minimal, interface, single input, big form, responsive form, transition" />
 	<meta name="author" content="Codrops" />
@@ -22,31 +22,7 @@
 			<form id="theForm" class="simform" autocomplete="off">
 				<div class="simform-inner">
 					<ol class="questions">
-						<li>
-							<span><label for="planToPurchaseTimeline">When do you plan to purchase?</label></span>
-							<div class="wrapper">
-								<div>
 
-									<input id="2-4months" class="months" name="6months" type="radio" />
-									<label for="2-4months">2&nbsp;or&nbsp;4&nbsp;months</label>
-								</div>
-								<div>
-
-									<input id="6months" name="6months" class="months" type="radio" />
-									<label for="6months">6&nbsp;months</label>
-								</div>
-								<div>
-
-									<input id="12months" name="12months" class="months" type="radio" />
-									<label for="12months">12&nbsp;months</label>
-								</div>
-								<div>
-
-									<input id="NOmonths" name="NOmonths" class="months" type="radio" />
-									<label for="NOmonths">not&nbsp;telling</label>
-								</div>
-							</div>
-						</li>
 
 						<li>
 							<span>
@@ -83,7 +59,31 @@
 								min="00501" max="99950" />
 						</li>
 
+						<li>
+							<span><label for="planToPurchaseTimeline">When do you plan to purchase?</label></span>
+							<div class="wrapper">
+								<div>
 
+									<input id="2-4months" class="months" name="6months" type="radio" />
+									<label for="2-4months">2&nbsp;or&nbsp;4&nbsp;months</label>
+								</div>
+								<div>
+
+									<input id="6months" name="6months" class="months" type="radio" />
+									<label for="6months">6&nbsp;months</label>
+								</div>
+								<div>
+
+									<input id="12months" name="12months" class="months" type="radio" />
+									<label for="12months">12&nbsp;months</label>
+								</div>
+								<div>
+
+									<input id="NOmonths" name="NOmonths" class="months" type="radio" />
+									<label for="NOmonths">not&nbsp;telling</label>
+								</div>
+							</div>
+						</li>
 
 					</ol><!-- /questions -->
 					<button class="submit" type="submit">Send answers</button>
@@ -101,7 +101,6 @@
 			</form>
 		</section>
 
-			</section> -->
 	</div><!-- /container -->
 	<script src="js/classie.js"></script>
 	<script src="js/stepsForm.js"></script>
@@ -120,6 +119,8 @@
 				*/
 
 				// let's just simulate something...
+
+
 				var messageEl = theForm.querySelector('.final-message');
 				messageEl.innerHTML =
 					'Thank you! We\'ll be in touch.<br><a href="#"><button class="brochureBtn">View our Brochure now<\/button><\/a>';
@@ -131,16 +132,15 @@
 		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
 	</script>
 	<script>
+		function toTitleCase(str) {
+			return str.split(/\s+/).map(s => s.charAt(0).toUpperCase() + s.substring(1).toLowerCase()).join(" ");
+		}
 
-function toTitleCase(str) {
-  return str.split(/\s+/).map(s => s.charAt(0).toUpperCase() + s.substring(1).toLowerCase()).join(" ");
-}
 
-
-$('input').on('keyup', function(event) {
-  var $t = $(this);
-  $t.val(toTitleCase($t.val()));
-});
+		$('input').on('keyup', function (event) {
+			var $t = $(this);
+			$t.val(toTitleCase($t.val()));
+		});
 
 		$('input.months').on('click', function () {
 			if ($(this).attr('checked', true)) {
